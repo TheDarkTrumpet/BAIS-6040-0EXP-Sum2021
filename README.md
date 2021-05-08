@@ -1,9 +1,9 @@
 # BAIS:6040:0EXP Class Materials
 
 # Introduction
-This repository is a collection of resources for the class BAIS:6040:0EXP for Spring 2021, taught at the Univeristy of Iowa, College of Business.
+This repository is a collection of resources for the class BAIS:6040:0EXP for Summer 2021, taught at the University of Iowa, College of Business.
 
-All these are also in ICON, but this repository has a number of benefits:
+This repository has a number of benefits:
 1. Easier to stay up to date - this is updated far more frequently than ICON is, you get access to more information sooner.
 2. A package of all contents - no downloading 1 at a time and self organization.
 3. Honestly, far easier for me. I work in Git all the time anyways
@@ -14,9 +14,9 @@ The format, regardless of the folder, will have a phase associated with it. As a
 
 | Phase | Modules | Topic |
 |-------| --------| ------|
-| Phase 1 | Modules 0-3.5ish | Basic Python |
-| Phase 2 | Modules 3.5 - 7 | Analysis/sources |
-| Phase 3 | Modules 7+ | Machine Learning |
+| Part 1 - Core | Modules 0-6ish | Basic Python |
+| Part 2 - Analysis | Modules 6+ | Analysis/sources |
+
 
 ## Folders and Contents
 

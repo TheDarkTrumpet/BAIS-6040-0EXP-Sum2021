@@ -1,7 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import re
 import pandas as pd
-import json
 
 
 class APIHandler(BaseHTTPRequestHandler):
@@ -13,19 +12,24 @@ class APIHandler(BaseHTTPRequestHandler):
             try:
                 api_file = self.load_file(fileroot)
                 api_file_json = api_file.to_json()
-
+                self.return_api_json(api_file_json)
             except:
                 self.return_error()
         else:
-            self.get_api_index()
+            self.return_api_index()
 
     def load_file(self, fileroot):
-        full_file = f"../data/{fileroot}.csv"
+        full_file = f"Data/{fileroot}.csv"
         file = pd.read_csv(full_file)
         return file
 
     def return_api_index(self):
-        pass
+        with open("Content/index.html", "r") as index:
+            index_file = index.read()
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
+            self.wfile.write(bytes(index_file, "utf-8"))
 
     def return_error(self):
         self.send_response(500)
@@ -34,7 +38,7 @@ class APIHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-type", "text/json")
         self.end_headers()
-        self.wfile.write(api_json)
+        self.wfile.write(bytes(api_json, "utf-8"))
 
 
 if __name__ == "__main__":

@@ -5,6 +5,7 @@ import pandas as pd
 
 class APIHandler(BaseHTTPRequestHandler):
     def do_GET(self):
+        # /api/<something>   <--- We want this
         path = re.match("^\/api\/(.*)", self.path)
 
         if path is not None:
@@ -33,6 +34,7 @@ class APIHandler(BaseHTTPRequestHandler):
 
     def return_error(self):
         self.send_response(500)
+        self.end_headers()
 
     def return_api_json(self, api_json):
         self.send_response(200)

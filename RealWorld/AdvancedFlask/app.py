@@ -1,7 +1,8 @@
-from flask import Flask
+from flask import Flask, request
 from flask.templating import render_template
 from lib.db import db
 import sqlalchemy as sa
+from lib.People import Person
 
 app = Flask(__name__)
 
@@ -27,6 +28,14 @@ def new_person_view():
 
 @app.route('/new/person', methods=['POST'])
 def new_person():
+    person = Person(
+        fname=request.form["fname"],
+        lname=request.form["lname"],
+        address=request.form["address"],
+        phone=request.form["phone"]
+    )
+
+    db_object.new(person)
     return render_template('person_added.html')
 
 

@@ -12,7 +12,6 @@ class db:
         users = self.session.query(Person).all()
         return users
 
-    def new(self, fname, lname, address, phone):
-        new_user = Person(fname=fname, lname=lname, address=address, phone=phone)
-        self.session.add(new_user)
+    def new(self, user):
+        self.session.add(user)
         self.session.commit()

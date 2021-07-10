@@ -1,8 +1,13 @@
 from flask import Flask
 from flask.templating import render_template
+from lib.db import People
 import sqlalchemy as sa
 
 app = Flask(__name__)
+
+sqllite_engine = sa.create_engine('sqllite:////db/advanced_flask.db')
+people = People(sqllite_engine)
+
 
 
 @app.route('/', methods=['GET'])

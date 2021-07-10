@@ -1,13 +1,12 @@
 from flask import Flask
 from flask.templating import render_template
-from lib.db import People
+from lib.db import db
 import sqlalchemy as sa
 
 app = Flask(__name__)
 
-sqllite_engine = sa.create_engine('sqllite:////db/advanced_flask.db')
-people = People(sqllite_engine)
-
+sqlite_engine = sa.create_engine('sqlite:///db/advanced_flask.db')
+db_object = db(sqlite_engine)
 
 
 @app.route('/', methods=['GET'])
@@ -17,7 +16,8 @@ def index():
 
 @app.route('/people', methods=['GET'])
 def people():
-    pass
+    people = db_object.get_people()
+    return render_template('people.html', people=people)
 
 
 @app.route('/new/person', methods=['POST'])

@@ -1,0 +1,25 @@
+{%  extends "layout.html" %}
+{%  block body %}
+    <h3>List of People</h3>
+    <table>
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+    </tr>
+    </thead>
+    <tbody>
+    {%  for person in people %}
+    <tr>
+    <td>{{ person.fname }}</td>
+    <td>{{ person.lname }}</td>
+    <td>{{ person.address }}</td>
+    <td>{{ person.phone }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    <p>Hello, world!</p>
+{% endblock %}

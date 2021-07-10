@@ -20,9 +20,14 @@ def people():
     return render_template('people.html', people=people)
 
 
+@app.route('/new/person', methods=['GET'])
+def new_person_view():
+    return render_template('person_add.html')
+
+
 @app.route('/new/person', methods=['POST'])
 def new_person():
-    pass
+    return render_template('person_added.html')
 
 
 @app.route('/api/people/get', methods=['GET'])

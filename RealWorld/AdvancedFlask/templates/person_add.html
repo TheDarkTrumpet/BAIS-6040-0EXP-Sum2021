@@ -1,0 +1,34 @@
+{%  extends "layout.html" %}
+{%  block body %}
+    <div class="col-md-12">
+    <div class="col-md-6 offset-md-3">
+    <div class="alert alert-info">
+        <h4>Add a person</h4>
+        <p>This form is used to add a user to the database.  Please fill out each field, and hit submit.</p>
+    </div>
+    </div>
+    <div class="col-md-12">
+<form class="form" method="post">
+    <div class="form-group">
+        <label for="fname">First Name</label>
+        <input type="text" class="form-control" id="fname" placeholder="First Name">
+    </div>
+    <div class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" class="form-control" id="lname" placeholder="Last Name">
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <textarea class="form-control" id="address" placeholder="Address"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="text" class="form-control" id="phone" placeholder="Phone Number">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="reset" class="btn btn-warning">Reset Form</button>
+    <a href="/" class="btn btn-info">Cancel and return to main page</a>
+</form>
+        </div>
+    </div>
+{%  endblock %}

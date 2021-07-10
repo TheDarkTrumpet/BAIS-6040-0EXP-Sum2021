@@ -1,5 +1,13 @@
 {%  extends "layout.html" %}
 {%  block body %}
-    <h3>Base Index Page</h3>
-    <p>Hello, world!</p>
+    <h3>Advanced Flask - Demo Page</h3>
+    <p>This page demonstrates some of the more 'advanced' portions of Flask. Specifically, how we can add people,
+        view people.  This also includes some extra content such as querying and working with SQLAlchemy, bootstrap,
+    and JQuery</p>
+
+    <p>Available Actions</p>
+    <ul>
+       <li><a href="/people">View current people in the database</a></li>
+       <li><a href="/new/person">Add a new person to the database</a></li>
+    </ul>
 {% endblock %}

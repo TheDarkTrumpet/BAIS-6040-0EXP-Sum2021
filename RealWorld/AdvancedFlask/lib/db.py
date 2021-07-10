@@ -12,6 +12,6 @@ class db:
         users = self.session.query(Person).all()
         return users
 
-    def new(self, user):
-        self.session.add(user)
+    def new(self, person):
+        self.session.add(person)
         self.session.commit()

@@ -40,14 +40,16 @@ def new_person():
     return render_template('person_added.html')
 
 
+# API CALLS BELOW
+
 @app.route('/api/people/', methods=['GET'])
 def get_people():
-    people = list(map(lambda x: x.as_dict(), db_object.get_people()))
-    return json.dumps(people)
+    dPeople = list(map(lambda x: x.as_dict(), db_object.get_people()))
+    return json.dumps(dPeople)
 
 
 @app.route('/api/people/', methods=['POST'])
-def put_people():
+def post_people():
     if not request.json:
         abort(400)
     person = Person.from_json(request.json)

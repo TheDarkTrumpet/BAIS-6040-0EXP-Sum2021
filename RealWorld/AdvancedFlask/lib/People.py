@@ -4,6 +4,7 @@ import json
 
 Base = declarative_base()
 
+
 class Person(Base):
     __tablename__ = 'People'
 

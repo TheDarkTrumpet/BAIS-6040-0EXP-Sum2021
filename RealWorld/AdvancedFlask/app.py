@@ -1,11 +1,13 @@
 from flask import Flask
+from flask.templating import render_template
+import sqlalchemy as sa
 
 app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'])
 def index():
-    return 'Hello World!'
+    return render_template('index.html')
 
 
 @app.route('/people', methods=['GET'])

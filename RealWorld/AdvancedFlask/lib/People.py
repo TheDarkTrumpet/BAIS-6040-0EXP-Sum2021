@@ -1,5 +1,6 @@
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String
+import json
 
 Base = declarative_base()
 
@@ -22,3 +23,13 @@ class Person(Base):
             "Address": self.address,
             "Phone": self.phone
         }
+
+    @classmethod
+    def from_json(self, json_str):
+        personJson = json.loads(json_str)
+        return Person(
+            fname=personJson.get("FirstName"),
+            lname=personJson.get("LastName"),
+            address=personJson.get("Address"),
+            phone=personJson.get("Phone")
+        )

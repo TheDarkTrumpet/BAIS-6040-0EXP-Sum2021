@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, abort, jsonify
 from flask.templating import render_template
 from lib.db import db
 import sqlalchemy as sa
@@ -40,15 +40,19 @@ def new_person():
     return render_template('person_added.html')
 
 
-@app.route('/api/people/get', methods=['GET'])
+@app.route('/api/people/', methods=['GET'])
 def get_people():
     people = list(map(lambda x: x.as_dict(), db_object.get_people()))
     return json.dumps(people)
 
 
-@app.route('/api/people/put', methods=['POST'])
+@app.route('/api/people/', methods=['POST'])
 def put_people():
-    pass
+    if not request.json:
+        abort(400)
+    person = Person.from_json(request.json)
+    db_object.new(person)
+    return jsonify({'result': True})
 
 
 if __name__ == '__main__':

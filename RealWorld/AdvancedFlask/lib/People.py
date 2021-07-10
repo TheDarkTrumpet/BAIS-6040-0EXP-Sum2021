@@ -14,3 +14,11 @@ class Person(Base):
 
     def __repr__(self):
         return f"{self.lname}, {self.fname}: {self.address} - {self.phone}"
+
+    def as_dict(self):
+        return {
+            "FirstName": self.fname,
+            "LastName": self.lname,
+            "Address": self.address,
+            "Phone": self.phone
+        }

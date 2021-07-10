@@ -3,6 +3,7 @@ from flask.templating import render_template
 from lib.db import db
 import sqlalchemy as sa
 from lib.People import Person
+import json
 
 app = Flask(__name__)
 
@@ -41,7 +42,8 @@ def new_person():
 
 @app.route('/api/people/get', methods=['GET'])
 def get_people():
-    pass
+    people = list(map(lambda x: x.as_dict(), db_object.get_people()))
+    return json.dumps(people)
 
 
 @app.route('/api/people/put', methods=['POST'])
